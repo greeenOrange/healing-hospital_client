@@ -6,7 +6,7 @@ const Modal = ({deletId}) => {
 const [control, setControl] = useState(true);
 
   const handelCancel = (deletId) => {
-      const url = `http://localhost:5000/booking/${deletId}`;
+      const url = `https://healing-hospitalserver.up.railway.app/booking/${deletId}`;
       fetch(url, {
        method: "DELETE",
       })
