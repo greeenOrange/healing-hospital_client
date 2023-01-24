@@ -20,7 +20,7 @@ const Appointment = () => {
           delay: 0.5,
           ease: [0, 0.71, 0.2, 1.01]
         }}
-        className='grid grid-template-cols-3 gap-2 appointment-container box'>
+        className='grid grid-rows-1 gap-2 appointment-container box'>
           <AppointmentBanner className='base-100 shadow-xl' date={date} setDate={setDate}/>
           <div className="card w-full shadow-xl">
               <AvailableAppointment date={date} setDate={setDate} />

@@ -146,10 +146,10 @@ const AvailableAppointment = ({date, setDate}) => {
   </div>: null}
   {formStep >= 2 ? <>
   <div className={formStep === 2 ? 'block': 'hidden'}>
-
   <div className='block mx-auto text-center'>
     <h2 className='text-center'>Contract Info:</h2>
-    <div>
+
+  <div>
     <input type="text" disabled value={format(date, 'PP')} className="input w-full  input-bordered my-1.5" />
 
   <input {...register("name", { required: true })} type="text" name='name' placeholder="Name" className="input w-full  input-bordered my-1.5" />
@@ -158,7 +158,8 @@ const AvailableAppointment = ({date, setDate}) => {
   <input disabled type="email" name='email' value={user?.email} placeholder="Email" className="input w-full " />
   <input {...register("phone", { required: true })} type="text" name='phone' placeholder="Phone" className="input w-full  input-bordered my-1.5" />
   {errors?.phone?.type === 'required' && <p className="text-red-500 text-xs italic">Phone Number</p>}
-</div>
+  </div>
+
     </div>
       
   </div>
@@ -183,19 +184,17 @@ const AvailableAppointment = ({date, setDate}) => {
 </motion.div>: null}
     
   </div>
-  <div className={treatment ? 'third_card lg:mt-40 h-full card mt-5 p-2': 'card p-2 lg:mt-64'}>
+  <div className={treatment ? 'third_card lg:mt-10 h-full card mt-2 p-2': 'card p-2'}>
   <div className="shadow-xl right_card p-5">
-    
-    {/* {formStep === 3 ? null: <button onClick={goToPreStep}> previous</button>} */}
- {formStep < MAX_STEPS && <ul className="steps">
+    {formStep < MAX_STEPS && <ul className="steps">
   <>
-  <li className={formStep === 0 ? 'step step-accent' : 'step'}>Appointment</li>
-  <li className={formStep === 1 ? 'step step-accent' : 'step'}>Choose Time</li>
-  <li className={formStep === 2 ? 'step step-accent' : 'step'}>fill input field</li>
+  <li className={formStep === 0 ? 'step step-accent mr-2' : 'step'}>Appointment</li>
+  <li className={formStep === 1 ? 'step step-accent mr-2' : 'step'}>Choose Time</li>
+  <li className={formStep === 2 ? 'step step-accent mr-2' : 'step'}>fill input field</li>
   </>
 </ul>}
-{treatment ? <h3>{treatment?.name}</h3> : null}
-{treatmentSlot ? <h4>{treatmentSlot}</h4> : null}
+{treatment ? <h3>{treatment?.name}</h3> : <h3>Please select a date</h3>}
+{treatmentSlot ? <h4>{treatmentSlot}</h4> : <h3>Please select slot</h3>}
     <div className="card-actions justify-end">
     <div className="flex items-center justify-center mt-4">
     {formStep > 0 ? <button className={formStep === 3 ? 'hidden': 'btn mr-2 treatment_btn block px-5'} onClick={goToPreStep}>
