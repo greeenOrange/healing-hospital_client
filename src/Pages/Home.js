@@ -9,17 +9,17 @@ import Banner from './Banner/Banner';
 const Home = () => {
     return (
         <div>
-           <div className='header-content'>
-            <Banner />
-           </div>
-           <div className="services">
-            <OurProcess />
-            <Blog />
-           </div>
-           <div className="blog">
-            <FAQ />
-            <Footer />
-           </div>
+            <div className='header-content'>
+                <Banner />
+            </div>
+            <div className="services">
+                <OurProcess />
+                <Blog />
+            </div>
+            <div className="blog">
+                <FAQ />
+                <Footer />
+            </div>
         </div>
     );
 };

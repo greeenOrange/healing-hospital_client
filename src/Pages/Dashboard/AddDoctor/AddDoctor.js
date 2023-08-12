@@ -6,14 +6,13 @@ import './AddDoctor.css'
 
 const AddDoctor = () => {
     const { register, formState: { errors }, reset , handleSubmit } = useForm();
-    const {data: services, isLoading } = useQuery('services', () => fetch('https://hospitalwebapps-production.up.railway.app/service') .then(res => res.json()))
+    const {data: services, isLoading } = useQuery('services', () => fetch('https://hospital-webapps.vercel.app/service') .then(res => res.json()))
     if(isLoading){
         return <button className="btn loading">loading</button>
     }
     const imgStorageKey='eb7f506c449c2e7a6323f2a986fd6e78';
 
     const onSubmit = async data => {
-        console.log(data);
         const image = data.file[0];
         const formData = new FormData();
         formData.append('image', image);
@@ -34,7 +33,7 @@ const AddDoctor = () => {
                     img: img,
                     discription: data.textarea
                 }
-                fetch('https://hospitalwebapps-production.up.railway.app/doctor', {
+                fetch('https://hospital-webapps.vercel.app/doctor', {
                     method: 'POST',
                     headers:{
                         'content-type': 'application/json',
@@ -56,7 +55,7 @@ const AddDoctor = () => {
         <div className='add-doctors-section'>
             <h2>Add Doctors</h2>
             <div className="doctors-container flex items-center justify-center flex-col">
-            <form className="grid flex-grow card rounded-box w-2/4 pl-5 input-field" onSubmit={handleSubmit(onSubmit)}>
+            <form className="grid flex-grow card rounded-box lg:w-2/4 pl-5 input-field" onSubmit={handleSubmit(onSubmit)}>
   <input {...register("firstName", { required: true })} aria-invalid={errors.firstName ? "true" : "false"} type="firstName" placeholder="Your firstName" className="my-2 input w-full max-w-xs border border-slate-300 hover:border-indigo-300" />
   {errors?.firstName?.type === 'required' && <p className="text-red-500 text-xs italic">Invalid firstName</p>}
   <input {...register("lastName", { required: true })} aria-invalid={errors.lastName ? "true" : "false"} type="lastName" placeholder="Your lastName" className="my-2 input w-full max-w-xs border border-slate-300 hover:border-indigo-300" />

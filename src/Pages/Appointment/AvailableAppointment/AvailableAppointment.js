@@ -65,7 +65,7 @@ const AvailableAppointment = ({date, setDate}) => {
     const { register, formState: { errors, isValid } } = useForm({mode: 'all'});
 
     const { isLoading, refetch, error, data: services } = useQuery(['available', formattedDate], () =>
-    fetch(`https://hospitalwebapps-production.up.railway.app/available?date=${formattedDate}`).then(res =>
+    fetch(`https://hospital-webapps.vercel.app/available?date=${formattedDate}`).then(res =>
        res.json()
      )
    )
@@ -89,7 +89,7 @@ const AvailableAppointment = ({date, setDate}) => {
         completeFormStep();
         JSON.stringify(booking, null, 2);
       console.log(booking);
-      fetch('https://hospitalwebapps-production.up.railway.app/booking', {
+      fetch('https://hospital-webapps.vercel.app/booking', {
         method: "POST",
         headers:{
           "content-type": "application/json"

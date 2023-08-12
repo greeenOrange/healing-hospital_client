@@ -3,12 +3,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { motion } from "framer-motion";
 import './Services.css'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+
 const Services = ({service, setTreatment, treatment}) => {
     const {name, slots, service_image, image} = service;
     const [isActive, setIsActive] = useState(false);
+    const [isBooking, setIsBooking] = useState(true)
     const handleTreatment = (service) =>{
         setTreatment(service);
-            setIsActive(!isActive);
+        setIsActive(!isActive);
+        if(treatment === false){
+            
+        }
     }
 
     return (
@@ -30,7 +35,10 @@ const Services = ({service, setTreatment, treatment}) => {
                 }</motion.p>
                 <div className="booking-btn">
                 <button className='btn' onClick={() => handleTreatment(service)} disabled={slots.length === 0}>
-      Book Now <span className='ml-2'><FontAwesomeIcon icon={faArrowRight}/></span></button>
+                Book Now<span className='ml-2'>
+                <FontAwesomeIcon icon={faArrowRight}/>
+                </span>
+                </button>
                 </div>
                 </motion.div>
                 <div className="service-inner-box">

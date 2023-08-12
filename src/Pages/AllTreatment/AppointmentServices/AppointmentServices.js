@@ -7,7 +7,7 @@ const AppointmentServices = ({date, treatment, setTreatment, setOption}) => {
     const formattedDate = format(date, 'PP');
     
     const { isLoading, refetch, error, data: services } = useQuery(['available', formattedDate], () =>
-    fetch(`https://hospitalwebapps-production.up.railway.app/available?date=${formattedDate}`).then(res =>
+    fetch(`https://hospital-webapps.vercel.app/available?date=${formattedDate}`).then(res =>
        res.json()
      )
    )

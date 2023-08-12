@@ -26,14 +26,13 @@ import Navbar from './Pages/Shared/Navbar';
 import FooterCopyRight from './Pages/Shared/Footer/FooterCopyRight/FooterCopyRight';
 import Contract from './Pages/contract/Contract';
 
-
 function App() {
   return (
     <>
-    <BrowserRouter>
-    <Navbar />
-    <Menu />
-      <Routes>
+      <BrowserRouter>
+        <Navbar />
+        <Menu />
+        <Routes>
           <Route path="/" element={<Home />} />{" "}
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -52,25 +51,25 @@ function App() {
             </RequireAuth>
           } />
           <Route
-        path="/dashboard"
-        element={
-          <RequireAuth>
-            <Dashboard />
-          </RequireAuth>
-        } >
-        <Route index element={<MyAppointment />}></Route>
-        <Route path='review' element={<Review />}></Route>
-        <Route path='users' element={<RequireAdmin> <AllUsers /> </RequireAdmin>}></Route>
-        <Route path='addDoctors' element={<RequireAdmin> <AddDoctor /> </RequireAdmin>}></Route>
-        <Route path='manageDoctors' element={<RequireAdmin> <ManageDoctor /> </RequireAdmin>}></Route>
-      </Route>
+            path="/dashboard"
+            element={
+              <RequireAuth>
+                <Dashboard />
+              </RequireAuth>
+            } >
+            <Route index element={<MyAppointment />}></Route>
+            <Route path='review' element={<Review />}></Route>
+            <Route path='users' element={<RequireAdmin> <AllUsers /> </RequireAdmin>}></Route>
+            <Route path='addDoctors' element={<RequireAdmin> <AddDoctor /> </RequireAdmin>}></Route>
+            <Route path='manageDoctors' element={<RequireAdmin> <ManageDoctor /> </RequireAdmin>}></Route>
+          </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/forgetpassword" element={<ForgetPassword />} />
-      </Routes>
-      <FooterCopyRight />
-      </BrowserRouter> 
-    <ToastContainer />   
+        </Routes>
+        <FooterCopyRight />
+      </BrowserRouter>
+      <ToastContainer />
     </>
   );
 }

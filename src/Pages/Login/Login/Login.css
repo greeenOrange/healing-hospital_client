@@ -11,6 +11,9 @@
   align-items: center;
   justify-content: center;
 }
+.login-container .login-section .login-box {
+  width: 70%;
+}
 .login-container .login-section .social-login li button {
   display: block;
   text-align: left;

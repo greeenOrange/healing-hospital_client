@@ -6,7 +6,7 @@ const Modal = ({deletId, refetch}) => {
 const [control, setControl] = useState(true);
 
   const handelCancel = (deletId) => {
-      const url = `https://hospitalwebapps-production.up.railway.app/booking/${deletId}`;
+      const url = `https://hospital-webapps.vercel.app/booking/${deletId}`;
       fetch(url, {
        method: "DELETE",
       })

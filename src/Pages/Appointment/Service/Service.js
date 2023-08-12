@@ -4,9 +4,7 @@ import './Service.css'
 const Service = ({service, setTreatment, treatment}) => {
     const {name, slots} = service;
     const [isActive, setIsActive] = useState(false);
-    // const handleSelected = () =>{
-        
-    // }
+
     const handleTreatment = (service) =>{
         setIsActive(!isActive);
         setTreatment(service);
